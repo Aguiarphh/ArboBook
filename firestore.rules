@@ -1,0 +1,36 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Regras globais: bloqueia tudo por padrão ─────────────────────────────
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // ── Dados do usuário: /users/{uid}/library/state ─────────────────────────
+    //
+    // Cada usuário só pode ler e escrever os próprios dados.
+    // Validações garantem a estrutura correta do documento.
+
+    match /users/{uid}/library/{document} {
+
+      // Leitura: apenas o próprio usuário autenticado
+      allow read: if request.auth != null
+                  && request.auth.uid == uid;
+
+      // Escrita: apenas o próprio usuário + valida a estrutura
+      allow write: if request.auth != null
+                   && request.auth.uid == uid
+                   && isValidLibraryState(request.resource.data);
+    }
+  }
+}
+
+// ── Função de validação da estrutura do LibraryState ────────────────────────
+function isValidLibraryState(data) {
+  return data.keys().hasAll(['borrowed', 'wishlist', 'readingStatuses'])
+      && data.borrowed is list
+      && data.wishlist is list
+      && data.readingStatuses is list;
+}

@@ -1,0 +1,45 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  background: var(--color-white);
+}
+
+.topBar {
+  height: var(--top-bar-height);
+  background: var(--color-surface-2);
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  overflow: hidden;
+}
+
+.heroSkeleton {
+  height: 200px;
+  border-radius: var(--radius-xl);
+  composes: skeleton from global;
+}
+
+.row {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.cardSkeleton {
+  flex: 1;
+  height: 200px;
+  border-radius: var(--radius-lg);
+  composes: skeleton from global;
+}
+
+.bottomNav {
+  height: var(--bottom-nav-height);
+  background: var(--color-surface-2);
+  flex-shrink: 0;
+}

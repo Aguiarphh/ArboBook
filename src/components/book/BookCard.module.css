@@ -1,0 +1,202 @@
+.card {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Grid variant (vertical) ── */
+.grid {
+  flex-direction: column;
+  width: 100%;       /* preenche a coluna do grid */
+  flex-shrink: 0;
+}
+
+.grid .coverWrap {
+  width: 100%;
+  height: 200px;
+}
+
+/* ── List variant (horizontal) ── */
+.list {
+  flex-direction: row;
+  width: 100%;
+  gap: var(--space-3);
+  padding: var(--space-3);
+}
+
+.list .coverWrap {
+  width: 72px;
+  height: 108px;
+  flex-shrink: 0;
+}
+
+/* ── Capa ── */
+.coverWrap {
+  position: relative;
+  background: var(--color-bark-mist);
+  overflow: hidden;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.coverPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    var(--color-leaf-mist),
+    var(--color-bark-mist)
+  );
+}
+
+.coverLetter {
+  font-family: var(--font-display);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-leaf-mid);
+  opacity: 0.6;
+}
+
+/* ── Wishlist button ── */
+.wishlistBtn {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: rgba(250, 250, 248, 0.90);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-spring),
+    background var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wishlistBtn:hover {
+  color: var(--color-error);
+  background: rgba(250, 250, 248, 1);
+}
+
+.wishlistBtn.inWishlist {
+  color: var(--color-error);
+  transform: scale(1.1);
+}
+
+/* ── Info ── */
+.info {
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+  min-width: 0; /* permite truncate funcionar */
+}
+
+.list .info {
+  padding: 0;
+  justify-content: center;
+}
+
+.category {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-leaf-mid);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-snug);
+}
+
+.list .title {
+  font-size: var(--font-size-md);
+}
+
+.author {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.list .author {
+  font-size: var(--font-size-sm);
+}
+
+/* ── Badge "Emprestado" na capa (variante grid) ── */
+.borrowedBadge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-1) var(--space-2);
+  background: rgba(139, 90, 43, 0.88); /* bark com opacidade */
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+/* ── Dot de disponibilidade (variante lista) ── */
+.availabilityDot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--space-1);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.dotAvailable {
+  color: var(--color-leaf-mid);
+}
+
+.dotAvailable .dot {
+  background: var(--color-leaf-mid);
+}
+
+.dotBorrowed {
+  color: var(--color-bark);
+}
+
+.dotBorrowed .dot {
+  background: var(--color-bark);
+}

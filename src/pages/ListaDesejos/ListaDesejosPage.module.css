@@ -1,0 +1,147 @@
+.section {
+  padding: var(--space-4);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.sectionIcon { color: var(--color-error); }
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+/* ── Auth Prompt ── */
+.authPrompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-16) var(--space-6);
+  text-align: center;
+  gap: var(--space-3);
+}
+
+.emoji { font-size: 3rem; }
+
+.authTitle {
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.authText {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  max-width: 260px;
+}
+
+.loginBtn {
+  margin-top: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-leaf-mid);
+  color: #fff;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md);
+  min-height: 48px;
+  transition: background var(--transition-fast);
+}
+
+.loginBtn:hover { background: var(--color-leaf-deep); }
+
+/* ── Wishlist ── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.wishCard {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.borrowBtn {
+  flex: 1;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-leaf-mid);
+  color: #fff;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  min-height: 40px;
+  transition: background var(--transition-fast);
+}
+
+.borrowBtn:hover { background: var(--color-leaf-deep); }
+
+.removeBtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.removeBtn:hover {
+  color: var(--color-error);
+  background: #FEE2E2;
+}
+
+/* ── Empty state ── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-12) var(--space-4);
+  text-align: center;
+  gap: var(--space-2);
+}
+
+.emptyTitle {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.emptyText {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  max-width: 240px;
+}
+
+.exploreBtn {
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-leaf-mid);
+  color: #fff;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  min-height: 44px;
+  transition: background var(--transition-fast);
+}
+
+.exploreBtn:hover { background: var(--color-leaf-deep); }
